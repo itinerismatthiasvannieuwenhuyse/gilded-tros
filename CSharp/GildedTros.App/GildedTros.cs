@@ -44,7 +44,7 @@ namespace GildedTros.App
             }
             else if (_smellyItems.Contains(item.Name))
             {
-                item.Quality -= 2;
+                item.Quality -= item.SellIn < 0 ? 4 : 2;
             }
             else
             {
