@@ -5,12 +5,12 @@ namespace GildedTros.App
 {
     public class GildedTros(IList<Item> Items)
     {
-        private IList<Item> _items = Items;
+        public IList<Item> Items = Items;
 
-        private readonly List<string> _backstagePassItems = ["Backstage passes for Re:factor", "Backstage passes for HAXX"];
-        private readonly List<string> _legendaryItems = ["B-DAWG Keychain"];
-        private readonly List<string> _wineItems = ["Good Wine"];
-        private readonly List<string> _smellyItems = ["Duplicate Code", "Long Methods", "Ugly Variable Names"];
+        private static readonly List<string> _backstagePassItems = ["Backstage passes for Re:factor", "Backstage passes for HAXX"];
+        private static readonly List<string> _legendaryItems = ["B-DAWG Keychain"];
+        private static readonly List<string> _wineItems = ["Good Wine"];
+        private static readonly List<string> _smellyItems = ["Duplicate Code", "Long Methods", "Ugly Variable Names"];
 
         private const int MINIMUMQUALITY = 0;
         private const int MAXIMUMQUALITY = 50;
@@ -18,14 +18,14 @@ namespace GildedTros.App
 
         public void UpdateQuality()
         {
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 SetSellIn(item);
                 SetQuality(item);
             }
         }
 
-        private void SetQuality(Item item)
+        private static void SetQuality(Item item)
         {
             if (_backstagePassItems.Contains(item.Name))
             {
@@ -40,7 +40,7 @@ namespace GildedTros.App
             }
             else if (_wineItems.Contains(item.Name))
             {
-                item.Quality += 1;
+                item.Quality += item.SellIn < 0 ? 2 : 1;
             }
             else if (_smellyItems.Contains(item.Name))
             {
@@ -56,7 +56,7 @@ namespace GildedTros.App
 
         private static int LimitQuality(int originalQuality, bool isLegendary) => Math.Min(isLegendary ? LEGENDARYQUALITY : MAXIMUMQUALITY, Math.Max(originalQuality, MINIMUMQUALITY));
 
-        private void SetSellIn(Item item) 
+        private static void SetSellIn(Item item) 
         {
             if (!_legendaryItems.Contains(item.Name))
                 item.SellIn -= 1;
