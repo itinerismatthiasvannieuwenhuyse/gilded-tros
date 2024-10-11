@@ -7,10 +7,10 @@ namespace GildedTros.App
     {
         public IList<Item> Items = Items;
 
-        private static readonly List<string> _backstagePassItems = ["Backstage passes for Re:factor", "Backstage passes for HAXX"];
-        private static readonly List<string> _legendaryItems = ["B-DAWG Keychain"];
-        private static readonly List<string> _wineItems = ["Good Wine"];
-        private static readonly List<string> _smellyItems = ["Duplicate Code", "Long Methods", "Ugly Variable Names"];
+        private static readonly List<string> s_backstagePassItems = ["Backstage passes for Re:factor", "Backstage passes for HAXX"];
+        private static readonly List<string> s_legendaryItems = ["B-DAWG Keychain"];
+        private static readonly List<string> s_wineItems = ["Good Wine"];
+        private static readonly List<string> s_smellyItems = ["Duplicate Code", "Long Methods", "Ugly Variable Names"];
 
         private const int MINIMUMQUALITY = 0;
         private const int MAXIMUMQUALITY = 50;
@@ -27,22 +27,22 @@ namespace GildedTros.App
 
         private static void SetQuality(Item item)
         {
-            if (_backstagePassItems.Contains(item.Name))
+            if (s_backstagePassItems.Contains(item.Name))
             {
                 if (item.SellIn > 0)
                     item.Quality += item.SellIn <= 5 ? 3 : item.SellIn <= 10 ? 2 : 1;
                 else
                     item.Quality = MINIMUMQUALITY;
             }
-            else if (_legendaryItems.Contains(item.Name))
+            else if (s_legendaryItems.Contains(item.Name))
             {
                 item.Quality = LEGENDARYQUALITY;
             }
-            else if (_wineItems.Contains(item.Name))
+            else if (s_wineItems.Contains(item.Name))
             {
                 item.Quality += item.SellIn < 0 ? 2 : 1;
             }
-            else if (_smellyItems.Contains(item.Name))
+            else if (s_smellyItems.Contains(item.Name))
             {
                 item.Quality -= item.SellIn < 0 ? 4 : 2;
             }
@@ -51,14 +51,14 @@ namespace GildedTros.App
                 item.Quality -= item.SellIn < 0 ? 2 : 1;
             }
 
-            item.Quality = LimitQuality(item.Quality, _legendaryItems.Contains(item.Name));
+            item.Quality = LimitQuality(item.Quality, s_legendaryItems.Contains(item.Name));
         }
 
         private static int LimitQuality(int originalQuality, bool isLegendary) => Math.Min(isLegendary ? LEGENDARYQUALITY : MAXIMUMQUALITY, Math.Max(originalQuality, MINIMUMQUALITY));
 
         private static void SetSellIn(Item item) 
         {
-            if (!_legendaryItems.Contains(item.Name))
+            if (!s_legendaryItems.Contains(item.Name))
                 item.SellIn -= 1;
         }
     }
