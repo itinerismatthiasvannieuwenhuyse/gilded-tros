@@ -1,4 +1,4 @@
-﻿OMGHAI!
+OMGHAI!
 -------- day 0 --------
 name, sellIn, quality
 Ring of Cleansening Code, 10, 20
@@ -78,7 +78,7 @@ B-DAWG Keychain, 0, 80
 B-DAWG Keychain, -1, 80
 Backstage passes for Re:factor, 10, 26
 Backstage passes for Re:factor, 5, 50
-Backstage passes for HAXX, 0, 0
+Backstage passes for HAXX, 0, 50
 Duplicate Code, -2, 0
 Long Methods, -2, 0
 Ugly Variable Names, -2, 0
@@ -147,7 +147,7 @@ Elixir of the SOLID, -5, 0
 B-DAWG Keychain, 0, 80
 B-DAWG Keychain, -1, 80
 Backstage passes for Re:factor, 5, 37
-Backstage passes for Re:factor, 0, 0
+Backstage passes for Re:factor, 0, 50
 Backstage passes for HAXX, -5, 0
 Duplicate Code, -7, 0
 Long Methods, -7, 0
@@ -216,7 +216,7 @@ Good Wine, -13, 28
 Elixir of the SOLID, -10, 0
 B-DAWG Keychain, 0, 80
 B-DAWG Keychain, -1, 80
-Backstage passes for Re:factor, 0, 0
+Backstage passes for Re:factor, 0, 50
 Backstage passes for Re:factor, -5, 0
 Backstage passes for HAXX, -10, 0
 Duplicate Code, -12, 0
