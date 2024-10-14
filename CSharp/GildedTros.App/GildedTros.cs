@@ -17,12 +17,12 @@ namespace GildedTros.App
 
         protected static void SetQuality(Item item)
         {
-            item.Quality = ItemQualityCalculator.CalculateQuality(item);
+            item.Quality = ItemQualityCalculator.Calculate(item);
         }
 
         protected static void SetSellIn(Item item) 
         {
-            item.SellIn = ItemSellInCalculator.CalculateSellIn(item);
+            item.SellIn = ItemSellInCalculator.Calculate(item);
         }
     }
 }

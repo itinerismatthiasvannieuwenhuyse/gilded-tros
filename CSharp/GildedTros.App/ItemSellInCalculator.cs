@@ -6,7 +6,7 @@ namespace GildedTros.App
     {
         private static readonly IList<string> s_legendaryItems = ["B-DAWG Keychain"];
 
-        public static int CalculateSellIn(Item item)
+        public static int Calculate(Item item)
         {
             return item.SellIn - (s_legendaryItems.Contains(item.Name) ? 0 : 1);
         }

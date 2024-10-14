@@ -14,7 +14,7 @@ namespace GildedTros.App
         private const int MAXIMUMQUALITY = 50;
         private const int LEGENDARYQUALITY = 80;
 
-        public static int CalculateQuality(Item item)
+        public static int Calculate(Item item)
         {
             bool itemIsExpired = item.SellIn < 0;
             int resultingQuality;
